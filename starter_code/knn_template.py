@@ -61,7 +61,14 @@ def autoNorm(dataSet):
 
 def datingClassTest():
     # 使用留出法：设置测试集比例（hold-out比例），这里使用50%的数据作为测试集
-
+    hoRatio = 0.50
+    datingDataMat,datinglabels = file2matrix(file_path)
+    normat, ranges, minVals = autoNorm(datingDataMat)
+    m = normMat.shape[0]
+    numTestVecs = int(m*hoRatio)
+    errorCount = 0.0
+    for i in range(numTestVecs):
+        classifierResult = classify0(normMat[i,:]),
 #datingClassTest()
 
 def classify0(inX, dataSet, labels, k):
